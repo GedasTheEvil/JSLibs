@@ -15,13 +15,16 @@ function Base64UInt(integer) {
     $private.string = '0';
 
     $private.construct = function () {
-        integer = parseInt(integer, 10);
-
-        if (!isNaN(integer)) {
-            $private.number = integer;
-        }
-
-        $private.string = $private.encode($private.number);
+        if (typeof initial_value === 'number') {
+            initial_value = parseInt(initial_value, 10);
+            if (!isNaN(initial_value)) {
+                $private.number = initial_value;
+            }
+            $private.string = $private.encode($private.number);
+        } else if (typeof initial_value === 'string') {
+            $private.string = initial_value;
+            $private.number = $private.decode(initial_value);
+        }        
     };
 
     /**
