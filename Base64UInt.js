@@ -111,4 +111,6 @@ function Base64UInt(integer) {
 
     // Declaration ends
     $private.construct();
+    
+    return $public;
 }
