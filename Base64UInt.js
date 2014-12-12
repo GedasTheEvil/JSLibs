@@ -5,7 +5,7 @@
  * @param {Number} integer
  * @constructor
  */
-function Base64Int(integer) {
+function Base64UInt(integer) {
     "use strict";
     var $public = {},
         $private = {};
