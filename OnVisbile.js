@@ -31,6 +31,7 @@ function OnVisbile(selector, document) {
         }
 
         document.addEventListener('scroll', $private.listener);
+        window.addEventListener('resize', $private.listener);
     };
 
     // Variables
