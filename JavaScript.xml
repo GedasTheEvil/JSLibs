@@ -1,0 +1,22 @@
+<templateSet group="JavaScript">
+  <template name="class" value="function $NAME$($PARAMS$) {&#10;    &quot;use strict&quot;;&#10;    &#10;    var $public = {},&#10;        $private = {};&#10;        &#10;    $private.construct = function () {&#10;        //TODO&#10;        $END$&#10;    };&#10;    &#10;    // End declaration&#10;    $private.construct();&#10;    return $public;&#10;}" description="Makes a closure class template" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="ClassName" alwaysStopAt="true" />
+    <variable name="PARAMS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JSX_HTML" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="sclass" value="function $NAME$($PARAMS$) {&#10;    &quot;use strict&quot;;&#10;    &#10;    var $public = this,&#10;        $private = {};&#10;        &#10;    $private.construct = function () {&#10;        //TODO&#10;        $END$&#10;    };&#10;    &#10;    // End declaration&#10;    $private.construct();&#10;    return $public;&#10;}&#10;&#10;$NAME$.prototype = {&#10;    //TODO: static properties list here&#10;};&#10;" description="Makes a hybrid closure class with static properties" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARAMS" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JSX_HTML" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
