@@ -2,7 +2,7 @@
  * Converts an unsigned int (base 10) to a (base 64) string and vice versa. This is a numeric conversion and to to be confused with
  * string (base 64) conversions such as atob, btoa.
  *
- * @param {Number} integer
+ * @param {number} integer
  * @constructor
  */
 function Base64UInt(integer) {
@@ -28,7 +28,7 @@ function Base64UInt(integer) {
     };
 
     /**
-     * @param {Number|int} number
+     * @param {number|int} number
      *
      * @return {string}
      */
@@ -51,9 +51,9 @@ function Base64UInt(integer) {
     };
 
     /**
-     * @param {String} string
+     * @param {string} string
      *
-     * @return {Number}
+     * @return {number}
      */
     $private.decode = function (string) {
         var base = string.split(''),
@@ -78,7 +78,7 @@ function Base64UInt(integer) {
     };
 
     /**
-     * @param {String|Number|int} number
+     * @param {string|number|int} number
      * @returns {string}
      */
     $public.numberToString = function (number) {
