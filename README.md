@@ -2,7 +2,7 @@ JSLibs
 ======
 Random libs of JavaScript that might be useful
 
-### Closure Style Class style (BEFORE EC6)
+### Closure Style Class style (BEFORE ES6)
 
 
 JavaScript is very flexible, however most of the tutorials found on the web are just WRONG. The original prototype based model for classes is fine ONLY if you want to have an object with ALL public methods and properties. What I propose is using the closure-based objects that only get properties AFTER construction.
