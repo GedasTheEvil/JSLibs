@@ -6,6 +6,7 @@ function getChangeLog() {
   return Array.prototype.map.call(list, e => e.innerText)
     .filter(t => doesNotHave(t, 'merge pull request'))
     .filter(t => doesNotHave(t, 'merge branch'))
+    .filter(t => doesNotHave(t, 'merge remote'))
     .filter(t => doesNotHave(t, 'built assets for release'))
     .map(t => `* ${t}`)
     .reduce((a, b) => `${a}\n${b}`, '')
