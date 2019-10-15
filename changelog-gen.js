@@ -13,6 +13,7 @@ function getChangeLog () {
         'fetmo',
         'mntsss',
         'Mantas Muliarčikas',
+        'nxsbuddenbrock',
     ]
 
     const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
