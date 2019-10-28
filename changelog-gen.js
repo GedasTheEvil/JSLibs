@@ -81,3 +81,5 @@ function getChangeLog () {
 
     return mainHeader() + log('NEXUS', nexusList) + log('Frontastic', frontasticList)
 }
+
+getChangeLog()
