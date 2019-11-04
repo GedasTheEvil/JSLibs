@@ -53,7 +53,7 @@ function getChangeLog () {
         const releaseName = `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}` +
             `.${d.getHours()}${to15(d.getMinutes())}`
 
-        return `Release ${releaseName}`
+        return `Back-end (Spryker) Release ${releaseName}`
     }
 
     return mainHeader() + log('NEXUS', nexusList)
