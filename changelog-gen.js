@@ -79,7 +79,7 @@ function getChangeLog () {
         const lc = window.location.href.split('/')
         const releaseName = lc[lc.length - 1].replace('...', ' => ')
 
-        return `Release ${releaseName}`
+        return `Front-end Release ${releaseName}`
     }
 
     return mainHeader() + log('NEXUS', nexusList) + log('Frontastic', frontasticList)
