@@ -25,8 +25,11 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'merge branch'))
             .filter(t => doesNotHave(t, 'merge remote'))
             .filter(t => doesNotHave(t, 'built assets for release'))
-            .sort((a, b) => a.localeCompare(b))
             .filter(t => doesNotHave(t, 'built release'))
+            .filter(t => doesNotHave(t, 'pr fixes'))
+            .filter(t => doesNotHave(t, 'code review'))
+            .filter(t => doesNotHave(t, 'commented out'))
+            .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
             .reduce((a, b) => `${a}\n${b}`, '')
     }
