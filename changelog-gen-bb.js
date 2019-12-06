@@ -18,7 +18,7 @@ function getChangeLog () {
     const nexusList = Array.prototype.map.call(nodeList, e => e)
 
     const formatNodeList = list => {
-        return list.map(getMessage)
+        const data = list.map(getMessage)
             .filter(t => t.length > 0)
             .filter(t => doesNotHave(t, 'merge pull request'))
             .filter(t => doesNotHave(t, 'merged in'))
@@ -32,7 +32,8 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'commented out'))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
-            .reduce((a, b) => `${a}\n${b}`, '')
+        
+        return [...new Set(data)].reduce((a, b) => `${a}\n${b}`, '')
     }
 
     const log = (title, list) => {
