@@ -56,15 +56,17 @@ function getChangeLog () {
         .filter(authorFilter(isFrontasticDev))
 
     const formatNodeList = list => {
-        return list.map(getMessage)
+        const data = list.map(getMessage)
             .filter(t => t.length > 0)
             .filter(t => doesNotHave(t, 'merge pull request'))
             .filter(t => doesNotHave(t, 'merge branch'))
             .filter(t => doesNotHave(t, 'merge remote'))
             .filter(t => doesNotHave(t, 'built assets for release'))
             .filter(t => doesNotHave(t, 'built release'))
+            .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
-            .reduce((a, b) => `${a}\n${b}`, '')
+
+        return [...new Set(data)].reduce((a, b) => `${a}\n${b}`, '')
     }
 
     const log = (title, list) => {
