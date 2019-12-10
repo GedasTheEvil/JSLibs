@@ -63,6 +63,7 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'merge remote'))
             .filter(t => doesNotHave(t, 'built assets for release'))
             .filter(t => doesNotHave(t, 'built release'))
+            .filter(t => doesNotHave(t, 'fixed merge conflicts'))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
 
