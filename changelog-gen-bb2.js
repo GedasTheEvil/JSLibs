@@ -22,6 +22,7 @@ function getChangeLog () {
             .filter(t => t.length > 0)
             .filter(t => doesNotHave(t, 'merge pull request'))
             .filter(t => doesNotHave(t, 'merged in'))
+            .filter(t => doesNotHave(t, 'merged master in'))
             .filter(t => doesNotHave(t, 'merge branch'))
             .filter(t => doesNotHave(t, 'merge remote'))
             .filter(t => doesNotHave(t, 'built assets for release'))
