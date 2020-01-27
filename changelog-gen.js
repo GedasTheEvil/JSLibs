@@ -22,10 +22,16 @@ function getChangeLog () {
         'Silviu Paduraru',
     ]
 
+    const prymDevs = [
+        'Volker',
+    ]
+
     const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
 
     const isNexusDev = author =>  nexusDevs.indexOf(author) !== -1
-    const isFrontasticDev = author => !isNexusDev(author)
+    const isPrymDev = author =>  prymDevs.indexOf(author) !== -1
+
+    const isFrontasticDev = author => !isNexusDev(author) && !isPrymDev(author)
 
     const getAuthor = element => {
         const author = element.querySelector(`.commit-author`)
@@ -51,11 +57,14 @@ function getChangeLog () {
 
     const authorFilter = call => element => call(getAuthor(element))
 
-    const nexusList = Array.prototype.map.call(nodeList, e => e)
-        .filter(authorFilter(isNexusDev))
+    const makeList = (filterBy) => {
+        return Array.prototype.map.call(nodeList, e => e)
+            .filter(authorFilter(filterBy))
+    }
 
-    const frontasticList = Array.prototype.map.call(nodeList, e => e)
-        .filter(authorFilter(isFrontasticDev))
+    const nexusList = makeList(isNexusDev)
+    const prymList = makeList(isPrymDev)
+    const frontasticList = makeList(isFrontasticDev)
 
     const formatNodeList = list => {
         const data = list.map(getMessage)
@@ -75,7 +84,7 @@ function getChangeLog () {
 
     const log = (title, rawList) => {
         const list = formatNodeList(rawList)
-        
+
         if (!(list && list.length)) {
             return ''
         }
@@ -90,7 +99,10 @@ function getChangeLog () {
         return `Front-end Release ${releaseName}`
     }
 
-    return mainHeader() + log('NEXUS', nexusList) + log('Frontastic', frontasticList)
+    return mainHeader()
+        + log('NEXUS', nexusList)
+        + log('PRYM', prymList)
+        + log('Frontastic', frontasticList)
 }
 
 getChangeLog()
