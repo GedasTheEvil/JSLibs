@@ -30,7 +30,6 @@ function getChangeLog () {
 
     const isNexusDev = author =>  nexusDevs.indexOf(author) !== -1
     const isPrymDev = author =>  prymDevs.indexOf(author) !== -1
-
     const isFrontasticDev = author => !isNexusDev(author) && !isPrymDev(author)
 
     const getAuthor = element => {
