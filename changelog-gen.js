@@ -73,12 +73,14 @@ function getChangeLog () {
         return [...new Set(data)].reduce((a, b) => `${a}\n${b}`, '')
     }
 
-    const log = (title, list) => {
+    const log = (title, rawList) => {
+        const list = formatNodeList(rawList)
+        
         if (!(list && list.length)) {
             return ''
         }
 
-        return `\n\n==== ${title} ====\n` + formatNodeList(list)
+        return `\n\n==== ${title} ====\n` + list
     }
 
     const mainHeader = () => {
