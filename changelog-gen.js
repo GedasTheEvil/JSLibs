@@ -19,6 +19,7 @@ function getChangeLog () {
         'DDero',
         'znavickas',
         'RolandasZ',
+        'Silviu Paduraru',
     ]
 
     const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
