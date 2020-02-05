@@ -76,6 +76,7 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'fixed merge conflicts'))
             .filter(t => doesNotHave(t, 'accidentaly commited file'))
             .filter(t => doesNotHave(t, 'undo project file'))
+            .filter(t => doesNotHave(t, 'eslint fix'))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
 
