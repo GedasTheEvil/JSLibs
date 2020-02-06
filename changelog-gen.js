@@ -77,6 +77,9 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'accidentaly commited file'))
             .filter(t => doesNotHave(t, 'undo project file'))
             .filter(t => doesNotHave(t, 'eslint fix'))
+            .filter(t => doesNotHave(t, 'eslint changes'))
+            .filter(t => doesNotHave(t, 'requested changes'))
+            .filter(t => doesNotHave(t, 'fixing a typo'))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
 
