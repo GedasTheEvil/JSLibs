@@ -37,7 +37,7 @@ function getChangeLog () {
             .map(t => t.replace(/merged.*(?=\*)/img, '', t).replace('*', '', t).trim())
             .map(t => t.replace(/PCED2C-(\d+)\s+(.*)/img, 'PCED2C-$1: $2', t))
             .map(t => `* ${t}`)
-        console.log(data);
+
         return [...new Set(data)].reduce((a, b) => `${a}\n${b}`, '')
     }
 
