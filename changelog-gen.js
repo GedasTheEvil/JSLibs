@@ -10,6 +10,7 @@ function getChangeLog () {
         'sylviu21',
         'N3m1s',
         'tbarauskas',
+        'Tadas Barauskas',
         'fetmo',
         'mntsss',
         'Mantas Muliarčikas',
