@@ -12,7 +12,10 @@ function getChangeLog () {
         return message.innerText.trim()
     }
 
-    const doesNotHave = (text, phrase) => text.toLowerCase().search(phrase) === -1
+    const doesNotHave = (text, phrase, safeGuardPattern) => {
+         const found = text.toLowerCase().search(phrase) === -1;
+         return !found && typeof safeGuardPattern !== 'undefined' ? safeGuardPattern.test(text) === true : found;
+     }
 
 
     const nexusList = Array.prototype.map.call(nodeList, e => e)
@@ -21,7 +24,7 @@ function getChangeLog () {
         const data = list.map(getMessage)
             .filter(t => t.length > 0)
             .filter(t => doesNotHave(t, 'merge pull request'))
-            .filter(t => doesNotHave(t, 'merged in'))
+            .filter(t => doesNotHave(t, 'merged', /merged.*(?=\*)/img))
             .filter(t => doesNotHave(t, 'merge branch'))
             .filter(t => doesNotHave(t, 'merge remote'))
             .filter(t => doesNotHave(t, 'built assets for release'))
@@ -31,8 +34,10 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'code sniffer fixes'))
             .filter(t => doesNotHave(t, 'commented out'))
             .sort((a, b) => a.localeCompare(b))
+            .map(t => t.replace(/merged.*(?=\*)/img, '', t).replace('*', '', t).trim())
+            .map(t => t.replace(/PCED2C-(\d+)\s+(.*)/img, 'PCED2C-$1: $2', t))
             .map(t => `* ${t}`)
-        
+
         return [...new Set(data)].reduce((a, b) => `${a}\n${b}`, '')
     }
 
