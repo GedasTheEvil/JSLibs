@@ -81,6 +81,7 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'eslint changes'))
             .filter(t => doesNotHave(t, 'requested changes'))
             .filter(t => doesNotHave(t, 'fixing a typo'))
+            .filter(t => doesNotHave(t, 'triggering a build'))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
 
