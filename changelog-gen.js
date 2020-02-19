@@ -79,6 +79,7 @@ function getChangeLog () {
             .filter(t => doesNotHave(t, 'undo project file'))
             .filter(t => doesNotHave(t, 'eslint fix'))
             .filter(t => doesNotHave(t, 'eslint changes'))
+            .filter(t => doesNotHave(t, 'fix eslint'))
             .filter(t => doesNotHave(t, 'requested changes'))
             .filter(t => doesNotHave(t, 'fixing a typo'))
             .filter(t => doesNotHave(t, 'triggering a build'))
