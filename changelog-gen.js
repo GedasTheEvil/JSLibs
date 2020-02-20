@@ -25,6 +25,7 @@ function getChangeLog () {
 
     const prymDevs = [
         'Volker',
+        'Christoph Zengerling',
     ]
 
     const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
