@@ -16,7 +16,6 @@ function getChangeLog () {
         'Mantas Muliarčikas',
         'nxsbuddenbrock',
         'Freeminderus',
-        's-haeusler',
         'DDero',
         'znavickas',
         'RolandasZ',
@@ -26,6 +25,7 @@ function getChangeLog () {
     const prymDevs = [
         'Volker',
         'Christoph Zengerling',
+        's-haeusler',
     ]
 
     const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
