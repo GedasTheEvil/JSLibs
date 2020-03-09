@@ -26,6 +26,7 @@ function getChangeLog () {
         'Volker',
         'Christoph Zengerling',
         's-haeusler',
+        'rilexus',
     ]
 
     const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
