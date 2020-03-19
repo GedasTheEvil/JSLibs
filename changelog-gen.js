@@ -89,6 +89,7 @@ function getChangeLog () {
             .filter(excludeString('triggering a build'))
             .filter(excludeString('as suggested in cr'))
             .filter(excludeString('as suggested in pr'))
+            .filter(excludeString('mr issues'))
             .filter(excludeString('removed comments'))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
