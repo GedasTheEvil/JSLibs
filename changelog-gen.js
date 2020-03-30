@@ -22,7 +22,13 @@ function getChangeLog() {
         "Silviu Paduraru",
     ]
 
-    const prymDevs = ["Volker", "Christoph Zengerling", "s-haeusler", "rilexus"]
+    const prymDevs = [
+        "Volker", 
+        "Christoph Zengerling", 
+        "s-haeusler", 
+        "rilexus",
+        "Zetttman",
+    ]
 
     const nodeList = document.querySelectorAll(
         `.js-details-container > .d-flex`
