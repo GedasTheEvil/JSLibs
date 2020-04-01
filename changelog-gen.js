@@ -101,6 +101,8 @@ function getChangeLog() {
             .filter(excludeString("linter"))
             .filter(excludeString("removed comments"))
             .filter(excludeString("resolved pr"))
+            .filter(excludeString("buildfix"))
+            .filter(excludeString("build fix"))
             .filter(excludeString("undid project yml"))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
