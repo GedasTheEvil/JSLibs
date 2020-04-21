@@ -29,6 +29,7 @@ function getChangeLog() {
         "rilexus",
         "Zetttman",
         "z0n",
+        "Markus Renken",
     ]
 
     const nodeList = document.querySelectorAll(
