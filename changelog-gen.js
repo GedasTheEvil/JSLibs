@@ -28,6 +28,7 @@ function getChangeLog() {
         "s-haeusler", 
         "rilexus",
         "Zetttman",
+        "z0n",
     ]
 
     const nodeList = document.querySelectorAll(
