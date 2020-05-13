@@ -105,6 +105,7 @@ function getChangeLog() {
             .filter(excludeString("resolved pr"))
             .filter(excludeString("buildfix"))
             .filter(excludeString("build fix"))
+            .filter(excludeString("build trigger"))
             .filter(excludeString("undid project yml"))
             .sort((a, b) => a.localeCompare(b))
             .map(t => `* ${t}`)
