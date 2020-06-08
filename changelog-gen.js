@@ -106,6 +106,7 @@ function getChangeLog() {
             .filter(excludeString("buildfix"))
             .filter(excludeString("build fix"))
             .filter(excludeString("build trigger"))
+            .filter(excludeString("restart build"))
             .filter(excludeString("undid project yml"))
             .filter(excludeString("update prym_poc/src"))
             .sort((a, b) => a.localeCompare(b))
