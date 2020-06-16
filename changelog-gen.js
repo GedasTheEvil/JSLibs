@@ -86,6 +86,7 @@ function getChangeLog() {
             .filter(excludeString("merge pull request"))
             .filter(excludeString("merge branch"))
             .filter(excludeString("merge remote"))
+            .filter(excludeString("merge conflict"))
             .filter(excludeString("built assets for release"))
             .filter(excludeString("built release"))
             .filter(excludeString("fixed merge conflicts"))
