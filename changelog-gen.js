@@ -103,6 +103,7 @@ function getChangeLog() {
             .filter(excludeString("linter"))
             .filter(excludeString("removed comments"))
             .filter(excludeString("resolved pr"))
+            .filter(excludeString("fixed pr"))
             .filter(excludeString("buildfix"))
             .filter(excludeString("build fix"))
             .filter(excludeString("build trigger"))
