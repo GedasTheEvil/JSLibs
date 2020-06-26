@@ -30,6 +30,7 @@ function getChangeLog() {
         "Zetttman",
         "z0n",
         "Markus Renken",
+        "andre-va",
     ]
 
     const nodeList = document.querySelectorAll(
