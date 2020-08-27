@@ -66,8 +66,10 @@ function getChangeLog() {
 
     const authorFilter = call => element => call(getAuthor(element))
 
+    const nodeToList = rawNodeList => Array.prototype.map.call(rawNodeList, e => e)
+
     const makeList = filterBy => {
-        return Array.prototype.map.call(nodeList, e => e).filter(authorFilter(filterBy))
+        return nodeToList(nodeList).filter(authorFilter(filterBy))
     }
 
     const nexusList = makeList(isNexusDev)
@@ -116,14 +118,18 @@ function getChangeLog() {
         return [...new Set(data)].reduce((a, b) => `${a}\n${b}`, '')
     }
 
-    const log = (title, rawList) => {
-        const list = formatNodeList(rawList)
-
+    const withHeader = (title, list) => {
         if (!(list && list.length)) {
             return ''
         }
 
         return `\n\n==== ${title} ====\n` + list
+    }
+
+    const log = (title, rawList) => {
+        const list = formatNodeList(rawList)
+
+        return withHeader(title, list)
     }
 
     const mainHeader = () => {
@@ -133,7 +139,40 @@ function getChangeLog() {
         return `Front-end Release ${releaseName}`
     }
 
-    return mainHeader() + log('NEXUS', nexusList) + log('PRYM', prymList) + log('Frontastic', frontasticList)
+    const getTicketList = () => {
+        const ticketPrefix = `PCED2C-`
+        const ticketPattern = new RegExp(`${ticketPrefix}\\d{4,}`, 'i')
+        const messageToTicket = message => {
+            const matches = message.match(ticketPattern) || []
+            console.log({
+                ctx: `messageToTicket`,
+                message,
+                matches,
+            })
+
+            return matches[0]
+        }
+        const ticketNumberToLink = ticket => `https://prym-group.atlassian.net/browse/${ticket}`
+
+        const rawList = nodeToList(nodeList)
+            .map(getMessage)
+            .filter(message => message.indexOf(ticketPrefix) !== -1)
+            .map(messageToTicket)
+            .filter(Boolean)
+            .map(ticketNumberToLink)
+            .sort((a, b) => a.localeCompare(b))
+            .map(t => `* ${t}`)
+
+        return [...new Set(rawList)].reduce((a, b) => `${a}\n${b}`, '')
+    }
+
+    return (
+        mainHeader() +
+        log('NEXUS', nexusList) +
+        log('PRYM', prymList) +
+        log('Frontastic', frontasticList) +
+        withHeader('Tickets to be deployed', getTicketList())
+    )
 }
 
 getChangeLog()
