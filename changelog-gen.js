@@ -144,11 +144,6 @@ function getChangeLog() {
         const ticketPattern = new RegExp(`${ticketPrefix}\\d{4,}`, 'i')
         const messageToTicket = message => {
             const matches = message.match(ticketPattern) || []
-            console.log({
-                ctx: `messageToTicket`,
-                message,
-                matches,
-            })
 
             return matches[0]
         }
