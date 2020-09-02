@@ -141,7 +141,7 @@ function getChangeLog() {
 
     const getTicketList = () => {
         const ticketPrefix = `PCED2C-`
-        const ticketPattern = new RegExp(`${ticketPrefix}\\d{4,}`, 'i')
+        const ticketPattern = new RegExp(`${ticketPrefix}\\d+`, 'i')
         const messageToTicket = message => {
             const matches = message.match(ticketPattern) || []
 
@@ -152,6 +152,10 @@ function getChangeLog() {
         const rawList = nodeToList(nodeList)
             .map(getMessage)
             .filter(message => message.indexOf(ticketPrefix) !== -1)
+            .filter(excludeString('merge pull request'))
+            .filter(excludeString('merge branch'))
+            .filter(excludeString('merge remote'))
+            .filter(excludeString('merge conflict'))
             .map(messageToTicket)
             .filter(Boolean)
             .map(ticketNumberToLink)
