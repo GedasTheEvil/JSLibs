@@ -59,7 +59,7 @@ function getChangeLog() {
             return ''
         }
 
-        return message.innerText.trim()
+        return message.innerText.trim().replace(`…`, '')
     }
 
     const doesNotHave = (text, phrase) => text.toLowerCase().search(phrase) === -1
