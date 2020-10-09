@@ -32,6 +32,7 @@ function getChangeLog() {
         'Markus Renken',
         'andre-va',
         'Andreas Mischke',
+        'andreasmischke',
         'Marcel Ahne',
     ]
 
