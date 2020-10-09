@@ -31,6 +31,7 @@ function getChangeLog() {
         'z0n',
         'Markus Renken',
         'andre-va',
+        'Andreas Mischke',
     ]
 
     const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
