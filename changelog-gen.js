@@ -36,7 +36,7 @@ function getChangeLog() {
         'Marcel Ahne',
     ]
 
-    const nodeList = document.querySelectorAll(`.js-details-container > .d-flex`)
+    const nodeList = document.querySelectorAll(`.TimelineItem.TimelineItem--condensed > .TimelineItem-body`)
 
     const isNexusDev = author => nexusDevs.indexOf(author) !== -1
     const isPrymDev = author => prymDevs.indexOf(author) !== -1
@@ -56,7 +56,7 @@ function getChangeLog() {
     }
 
     const getMessage = element => {
-        const message = element.querySelector(`.commit-message.pr-1.flex-auto`)
+        const message = element.querySelector(`code`)
 
         if (!message) {
             return ''
