@@ -52,7 +52,7 @@ function getChangeLog() {
 
         const authorName = author?.ariaLabel?.trim() || fallbackAuthor
 
-        return authorName.split(' and ')[0]
+        return authorName.split(' and ')[0].split(', ')[0].trim()
     }
 
     const getMessage = element => {
