@@ -35,6 +35,7 @@ function getChangeLog() {
         'andreasmischke',
         'Marcel Ahne',
         'kalinaprym',
+        'Alfred Bez',
     ]
 
     const nodeList = document.querySelectorAll(`.TimelineItem.TimelineItem--condensed > .TimelineItem-body`)
