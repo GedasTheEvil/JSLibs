@@ -53,7 +53,7 @@ function getChangeLog() {
             return fallbackAuthor
         }
 
-        const authorName = author?.ariaLabel?.trim() || fallbackAuthor
+        const authorName = author?.ariaLabel?.trim() || author?.getAttribute('aria-label') || fallbackAuthor
 
         return authorName.split(' and ')[0].split(', ')[0].trim()
     }
