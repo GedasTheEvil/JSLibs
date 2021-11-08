@@ -39,7 +39,7 @@ function getChangeLog() {
         'srybalko-prym',
     ]
 
-    const nodeList = document.querySelectorAll(`.TimelineItem.TimelineItem--condensed > .TimelineItem-body`)
+    const nodeList = document.querySelectorAll(`.js-commits-list-item`)
 
     const isNexusDev = author => nexusDevs.indexOf(author) !== -1
     const isPrymDev = author => prymDevs.indexOf(author) !== -1
@@ -59,7 +59,7 @@ function getChangeLog() {
     }
 
     const getMessage = element => {
-        const message = element.querySelector(`code`)
+        const message = element.querySelector(`.Details .Link--primary`)
 
         if (!message) {
             return ''
