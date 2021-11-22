@@ -36,6 +36,7 @@ function getChangeLog() {
         'Marcel Ahne',
         'kalinaprym',
         'Alfred Bez',
+        'alfredbez',
         'srybalko-prym',
     ]
 
